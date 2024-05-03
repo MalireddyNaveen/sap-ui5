@@ -78,6 +78,7 @@ modules:
     builder: custom
     commands:
     - npm install
+    - npm ci
     - npm run build:cf
     supported-platforms: []
 resources:
@@ -134,4 +135,5 @@ build-parameters:
   - builder: custom
     commands:
     - npm install
+    - npm ci
     - npx cds build --production
