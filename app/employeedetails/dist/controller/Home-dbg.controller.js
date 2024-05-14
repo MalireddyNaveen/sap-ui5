@@ -26,9 +26,11 @@ sap.ui.define([
                 this.getView().setModel(oLocalModel, "localModel");
                 this.getRouter().attachRoutePatternMatched(this.onEmployeeListLoad, this);
             },
+            
             onEmployeeListLoad: function () {
                 this.getView().byId("idEmployeeTable").getBinding("items").refresh(); 
             },
+
             onGoPress: function () {
                 /**
                  * Create all the filters
@@ -44,6 +46,7 @@ sap.ui.define([
                 sFirstName ? aFilters.push(new Filter("fName", FilterOperator.EQ, sFirstName)) : "";
                 oTable.getBinding("items").filter(aFilters);
             },
+
             onSelectEmployee: function (oEvent) {
                 const { ID, fName } = oEvent.getSource().getSelectedItem().getBindingContext().getObject();
                 const oRouter = this.getRouter();
@@ -52,6 +55,7 @@ sap.ui.define([
                     empName: fName
                 })
             },
+
             onCreateBtnPress: async function () {
                 if (!this.oCreateEmployeeDialog) {
                     this.oCreateEmployeeDialog = await this.loadFragment("CreateEmployeeDialog")

@@ -16,7 +16,10 @@
     "devDependencies": {
         "@cap-js/sqlite": "^1",
         "@sap/cds-dk": "^7",
-        "@sap/ux-specification": "^1.120.8",
+        "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+        "@sap/ux-specification": "^1.120.9",
+        "@sapui5/ts-types": "^1.92.2",
+        "eslint": "^7.32.0",
         "rimraf": "^3.0.2"
     },
     "scripts": {
@@ -24,7 +27,8 @@
         "watch-employeedetails": "cds watch --open employeedetails/webapp/index.html?sap-ui-xx-viewCache=false",
         "undeploy": "cf undeploy EMPLOYEE-SAP-CAP-MANAGED --delete-services --delete-service-keys --delete-service-brokers",
         "build": "rimraf resources mta_archives && mbt build --mtar archive",
-        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+        "watch-employee_fiori_ele": "cds watch --open employee_fiori_ele/webapp/index.html?sap-ui-xx-viewCache=false"
     },
     "cds": {
         "requires": {
@@ -61,5 +65,8 @@
                 }
             }
         }
-    }
+    },
+    "sapux": [
+        "app/employee_fiori_ele"
+    ]
 }
